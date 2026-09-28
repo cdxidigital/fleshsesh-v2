@@ -100,8 +100,9 @@ function LiveRecordPage() {
 
           <p className="mt-8 max-w-2xl text-sm leading-relaxed">{hit.summary}</p>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted">
-            Metadata is drawn from Wikidata identifiers for IAFD, Adult Film Database, AVN, XXXBios, EGAFD, BGAFD, and
-            EuroBabeIndex. fleshsesh does not host explicit media, scene descriptions, or photographs. Birth dates are
+            Metadata is drawn from Australian, American, and European industry identifiers — Classification, IAFD, AFDB,
+            AVN, IMDb, XBIZ, EGAFD, BGAFD, OFDb, AlloCiné, ČSFD, FilmAffinity, and Filmportal. Tube sites are not
+            indexed. fleshsesh does not host explicit media, scene descriptions, or photographs. Birth dates are
             used only to enforce a 21+ filter and are not published.
           </p>
 

@@ -88,6 +88,6 @@ export const KIND_META: Record<
   law: {
     label: "Law",
     singular: "Statute",
-    blurb: "Statutes, cases, and compliance notes that govern the trade.",
+    blurb: "Australian law first, in plain words for talent, influencers, and productions. Not legal advice.",
   },
 };

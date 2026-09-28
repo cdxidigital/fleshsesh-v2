@@ -14,7 +14,9 @@ import { Route as AcademyRouteImport } from './routes/academy'
 import { Route as ApplyRouteImport } from './routes/apply'
 import { Route as AtelierRouteImport } from './routes/atelier'
 import { Route as AtlasRouteImport } from './routes/atlas'
+import { Route as BrochureRouteImport } from './routes/brochure'
 import { Route as CartRouteImport } from './routes/cart'
+import { Route as CorporateRouteImport } from './routes/corporate'
 import { Route as DeskRouteImport } from './routes/desk'
 import { Route as JoinRouteImport } from './routes/join'
 import { Route as LedgerRouteImport } from './routes/ledger'
@@ -26,6 +28,7 @@ import { Route as NightsRouteImport } from './routes/nights'
 import { Route as OsRouteImport } from './routes/os'
 import { Route as PassRouteImport } from './routes/pass'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitesRouteImport } from './routes/sites'
 import { Route as TalentRouteImport } from './routes/talent'
 import { Route as AcademyIndexRouteImport } from './routes/academy.index'
 import { Route as AcademySlugRouteImport } from './routes/academy.$slug'
@@ -80,9 +83,19 @@ const AtlasRoute = AtlasRouteImport.update({
   path: '/atlas',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BrochureRoute = BrochureRouteImport.update({
+  id: '/brochure',
+  path: '/brochure',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CartRoute = CartRouteImport.update({
   id: '/cart',
   path: '/cart',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CorporateRoute = CorporateRouteImport.update({
+  id: '/corporate',
+  path: '/corporate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DeskRoute = DeskRouteImport.update({
@@ -138,6 +151,11 @@ const PassRoute = PassRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitesRoute = SitesRouteImport.update({
+  id: '/sites',
+  path: '/sites',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TalentRoute = TalentRouteImport.update({
@@ -287,7 +305,9 @@ export interface FileRoutesByFullPath {
   '/apply': typeof ApplyRoute
   '/atelier': typeof AtelierRouteWithChildren
   '/atlas': typeof AtlasRouteWithChildren
+  '/brochure': typeof BrochureRoute
   '/cart': typeof CartRoute
+  '/corporate': typeof CorporateRoute
   '/desk': typeof DeskRoute
   '/join': typeof JoinRoute
   '/ledger': typeof LedgerRouteWithChildren
@@ -299,6 +319,7 @@ export interface FileRoutesByFullPath {
   '/os': typeof OsRouteWithChildren
   '/pass': typeof PassRoute
   '/services': typeof ServicesRoute
+  '/sites': typeof SitesRoute
   '/talent': typeof TalentRouteWithChildren
   '/academy/$slug': typeof AcademySlugRoute
   '/academy/exam': typeof AcademyExamRoute
@@ -331,7 +352,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/apply': typeof ApplyRoute
+  '/brochure': typeof BrochureRoute
   '/cart': typeof CartRoute
+  '/corporate': typeof CorporateRoute
   '/desk': typeof DeskRoute
   '/join': typeof JoinRoute
   '/legal': typeof LegalRoute
@@ -340,6 +363,7 @@ export interface FileRoutesByTo {
   '/nights': typeof NightsRoute
   '/pass': typeof PassRoute
   '/services': typeof ServicesRoute
+  '/sites': typeof SitesRoute
   '/academy/$slug': typeof AcademySlugRoute
   '/academy/exam': typeof AcademyExamRoute
   '/atelier/$slug': typeof AtelierSlugRoute
@@ -374,7 +398,9 @@ export interface FileRoutesById {
   '/apply': typeof ApplyRoute
   '/atelier': typeof AtelierRouteWithChildren
   '/atlas': typeof AtlasRouteWithChildren
+  '/brochure': typeof BrochureRoute
   '/cart': typeof CartRoute
+  '/corporate': typeof CorporateRoute
   '/desk': typeof DeskRoute
   '/join': typeof JoinRoute
   '/ledger': typeof LedgerRouteWithChildren
@@ -386,6 +412,7 @@ export interface FileRoutesById {
   '/os': typeof OsRouteWithChildren
   '/pass': typeof PassRoute
   '/services': typeof ServicesRoute
+  '/sites': typeof SitesRoute
   '/talent': typeof TalentRouteWithChildren
   '/academy/$slug': typeof AcademySlugRoute
   '/academy/exam': typeof AcademyExamRoute
@@ -423,7 +450,9 @@ export interface FileRouteTypes {
     | '/apply'
     | '/atelier'
     | '/atlas'
+    | '/brochure'
     | '/cart'
+    | '/corporate'
     | '/desk'
     | '/join'
     | '/ledger'
@@ -435,6 +464,7 @@ export interface FileRouteTypes {
     | '/os'
     | '/pass'
     | '/services'
+    | '/sites'
     | '/talent'
     | '/academy/$slug'
     | '/academy/exam'
@@ -467,7 +497,9 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/apply'
+    | '/brochure'
     | '/cart'
+    | '/corporate'
     | '/desk'
     | '/join'
     | '/legal'
@@ -476,6 +508,7 @@ export interface FileRouteTypes {
     | '/nights'
     | '/pass'
     | '/services'
+    | '/sites'
     | '/academy/$slug'
     | '/academy/exam'
     | '/atelier/$slug'
@@ -509,7 +542,9 @@ export interface FileRouteTypes {
     | '/apply'
     | '/atelier'
     | '/atlas'
+    | '/brochure'
     | '/cart'
+    | '/corporate'
     | '/desk'
     | '/join'
     | '/ledger'
@@ -521,6 +556,7 @@ export interface FileRouteTypes {
     | '/os'
     | '/pass'
     | '/services'
+    | '/sites'
     | '/talent'
     | '/academy/$slug'
     | '/academy/exam'
@@ -557,7 +593,9 @@ export interface RootRouteChildren {
   ApplyRoute: typeof ApplyRoute
   AtelierRoute: typeof AtelierRouteWithChildren
   AtlasRoute: typeof AtlasRouteWithChildren
+  BrochureRoute: typeof BrochureRoute
   CartRoute: typeof CartRoute
+  CorporateRoute: typeof CorporateRoute
   DeskRoute: typeof DeskRoute
   JoinRoute: typeof JoinRoute
   LedgerRoute: typeof LedgerRouteWithChildren
@@ -569,6 +607,7 @@ export interface RootRouteChildren {
   OsRoute: typeof OsRouteWithChildren
   PassRoute: typeof PassRoute
   ServicesRoute: typeof ServicesRoute
+  SitesRoute: typeof SitesRoute
   TalentRoute: typeof TalentRouteWithChildren
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
@@ -610,11 +649,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AtlasRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/brochure': {
+      id: '/brochure'
+      path: '/brochure'
+      fullPath: '/brochure'
+      preLoaderRoute: typeof BrochureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cart': {
       id: '/cart'
       path: '/cart'
       fullPath: '/cart'
       preLoaderRoute: typeof CartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/corporate': {
+      id: '/corporate'
+      path: '/corporate'
+      fullPath: '/corporate'
+      preLoaderRoute: typeof CorporateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/desk': {
@@ -692,6 +745,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sites': {
+      id: '/sites'
+      path: '/sites'
+      fullPath: '/sites'
+      preLoaderRoute: typeof SitesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/talent': {
@@ -1023,7 +1083,9 @@ const rootRouteChildren: RootRouteChildren = {
   ApplyRoute: ApplyRoute,
   AtelierRoute: AtelierRouteWithChildren,
   AtlasRoute: AtlasRouteWithChildren,
+  BrochureRoute: BrochureRoute,
   CartRoute: CartRoute,
+  CorporateRoute: CorporateRoute,
   DeskRoute: DeskRoute,
   JoinRoute: JoinRoute,
   LedgerRoute: LedgerRouteWithChildren,
@@ -1035,6 +1097,7 @@ const rootRouteChildren: RootRouteChildren = {
   OsRoute: OsRouteWithChildren,
   PassRoute: PassRoute,
   ServicesRoute: ServicesRoute,
+  SitesRoute: SitesRoute,
   TalentRoute: TalentRouteWithChildren,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
 }

@@ -11,7 +11,7 @@ const PERKS: Record<string, string[]> = {
   "pass-member": [
     "Five percent off atelier, academy, and fees",
     "FLESH Points on every settle",
-    "One ID across nights, OS, and the desk",
+    "One ID across OS, the atelier, and the desk",
   ],
   "pass-black": [
     "Ten percent off the floor",
@@ -43,7 +43,7 @@ function PassPage() {
       <PageHero kicker="The pass" title={<>One ID.<br />Three doors.</>} image="/still-live.jpg">
         <p className="mt-4 max-w-md text-sm leading-relaxed text-ivory/80">
           Sesh, Sesh Black, and House. Pricing follows the file. House credit spends like cash in this room. The glue
-          across atelier, academy, nights, and OS.
+          across atelier, academy, and OS.
         </p>
       </PageHero>
       <section className="grid md:grid-cols-3">

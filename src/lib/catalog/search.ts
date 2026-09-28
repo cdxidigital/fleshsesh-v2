@@ -29,6 +29,33 @@ export function listKind(kind: Kind): Entity[] {
   return entities.filter((e) => e.kind === kind);
 }
 
+export type LawRegion = "Australian" | "American" | "European" | "Global";
+
+export const LAW_REGIONS: LawRegion[] = ["Australian", "American", "European", "Global"];
+
+export function lawRegion(entity: Entity): LawRegion {
+  const j = `${entity.jurisdiction ?? ""} ${entity.region ?? ""}`.toLowerCase();
+  if (j.includes("australia") || j.includes("commonwealth of australia")) return "Australian";
+  if (
+    j.includes("europe") ||
+    j.includes("united kingdom") ||
+    j.includes("britain") ||
+    j.includes("european union")
+  ) {
+    return "European";
+  }
+  if (
+    j.includes("united states") ||
+    j.includes("u.s.") ||
+    j.includes("texas") ||
+    j.includes("california") ||
+    j.includes("los angeles")
+  ) {
+    return "American";
+  }
+  return "Global";
+}
+
 export function counts(): Record<Kind, number> {
   const out = {
     performers: 0,
@@ -125,6 +152,7 @@ export function search(q: string, kind?: Kind | "all"): Hit[] {
         break;
       }
     }
+    if (entity.kind === "law" && lawRegion(entity) === "Australian") score += 36;
     if (!miss) hits.push({ entity, score });
   }
   hits.sort((a, b) => b.score - a.score || a.entity.name.localeCompare(b.entity.name));

@@ -20,6 +20,12 @@ function ServicesPage() {
           Launch kits, capture days, takedowns. The house takes a file. Rooms hire by the hour. Lookbooks lease a
           likeness — signed talent only.
         </p>
+        <Link
+          to="/sites"
+          className="mt-6 inline-flex min-h-12 items-center bg-heat px-6 font-display text-xs tracking-widest text-navy uppercase"
+        >
+          Start a personal site
+        </Link>
       </PageHero>
       <section>
         {rows.map((p) => (

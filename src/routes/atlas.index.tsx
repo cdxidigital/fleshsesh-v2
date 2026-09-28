@@ -9,14 +9,14 @@ export const Route = createFileRoute("/atlas/")({ component: AtlasHome });
 const TRY = [
   { q: "fleshsesh", kind: "companies" },
   { q: "Vale Noir", kind: "performers" },
-  { q: "2257", kind: "law" },
+  { q: "What you can sell", kind: "law" },
   { q: "XBIZ", kind: "events" },
   { q: "Helix House", kind: "companies" },
 ] as const;
 
 function AtlasHome() {
   const c = counts();
-  const spotlight = [getById("fleshsesh"), getById("vale-noir"), getById("usc-2257"), getById("helix-house")].filter(
+  const spotlight = [getById("fleshsesh"), getById("au-classification-1995"), getById("vale-noir"), getById("au-online-safety-2021")].filter(
     Boolean,
   );
   const upcoming = listKind("events").filter((e) => e.status === "Upcoming").slice(0, 4);
@@ -30,9 +30,8 @@ function AtlasHome() {
         filed.
       </h1>
       <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted">
-        A professional register — not a tube. Search public industry databases via Wikidata, plus the house desk,
-        calendar, and the statutes that govern the work. No explicit media. Performers in the live index need a
-        Wikidata birth year of 21 or older.
+        A professional register — not a tube. Australian, American, and European industry databases, plus the house
+        desk. No explicit media. Performers in the live index need a Wikidata birth year of 21 or older.
       </p>
       <div className="mt-8 max-w-2xl">
         <SearchBox autoFocus />
@@ -72,11 +71,8 @@ function AtlasHome() {
 
       {upcoming.length > 0 ? (
         <section className="mt-14">
-          <div className="mb-4 flex items-end justify-between">
+          <div className="mb-4">
             <p className="font-display text-xs tracking-widest text-heat uppercase">Upcoming</p>
-            <Link to="/nights" className="font-display text-xs tracking-widest text-heat uppercase">
-              House nights
-            </Link>
           </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {upcoming.map((e) => (

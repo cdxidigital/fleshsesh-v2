@@ -80,6 +80,27 @@
   animation: rise 0.9s cubic-bezier(0.22, 0.7, 0.2, 1) both;
 }
 
+.nav-mark {
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.7));
+}
+
+.hero-mark {
+  filter:
+    drop-shadow(0 22px 36px rgba(0, 0, 0, 0.62))
+    drop-shadow(0 0 22px rgba(224, 125, 207, 0.35));
+  animation: mark-breathe 7.5s ease-in-out infinite;
+}
+
+@keyframes mark-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) scale(1.02);
+  }
+}
+
 .grain {
   pointer-events: none;
   position: fixed;
@@ -90,9 +111,44 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
 }
 
+.film-still {
+  transform: scale(1.08);
+  animation: film-drift 32s ease-in-out infinite alternate;
+}
+
+@keyframes film-drift {
+  from {
+    transform: scale(1.08) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.16) translate3d(-2%, -1.2%, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,
-  .reveal {
+  .reveal,
+  .hero-mark,
+  .film-still {
     animation: none;
+  }
+}
+
+@media print {
+  header,
+  footer,
+  .grain,
+  .no-print,
+  video {
+    display: none !important;
+  }
+  body,
+  .brochure {
+    background: #fff !important;
+    color: #14081c !important;
+  }
+  .brochure a {
+    color: inherit;
+    text-decoration: none;
   }
 }

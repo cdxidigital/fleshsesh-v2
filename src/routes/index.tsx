@@ -7,7 +7,7 @@ import { aud } from "@/lib/house/money";
 
 export const Route = createFileRoute("/")({ component: Home });
 
-const MARQUEE = ["PASS", "ATELIER", "ACADEMY", "TALENT", "OS", "ATLAS", "NIGHTS", "LEDGER", "PERTH", "GENDER-FLUID"];
+const MARQUEE = ["PASS", "ATELIER", "ACADEMY", "TALENT", "SITES", "OS", "ATLAS", "LEDGER", "PERTH", "GENDER-FLUID"];
 
 function Home() {
   const [drop, setDrop] = useState<Product[]>([]);
@@ -20,29 +20,45 @@ function Home() {
 
   return (
     <HouseChrome>
-      <section className="relative flex min-h-dvh items-end justify-center px-5 pb-16 pt-32">
-        <img src="/still-lips.jpg" alt="" className="absolute inset-0 size-full object-cover" />
-        <div className="absolute inset-0 bg-linear-to-t from-void via-void/40 to-navy/50" />
+      <section className="relative flex min-h-dvh items-end justify-center overflow-hidden px-5 pb-20 pt-28">
+        <video
+          className="absolute inset-0 size-full object-cover"
+          src="/hero-loop.mp4"
+          poster="/hero-corridor.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
+        <div className="absolute inset-0 bg-linear-to-t from-void via-void/50 to-navy/35" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_10%,rgba(11,2,45,0.62)_78%)]" />
         <div className="relative flex flex-col items-center text-center">
-          <p className="mb-4 font-display text-xs tracking-widest text-heat uppercase">
+          <p className="mb-5 font-display text-xs tracking-[0.35em] text-heat uppercase">
             Gender-fluid adult house · Perth
           </p>
-          <BrandLogo variant="lockup" className="h-36 w-auto md:h-52" />
-          <p className="mt-6 max-w-md text-sm leading-relaxed text-ivory/80">
+          <BrandLogo variant="wordmark" className="hero-mark h-auto w-[min(86vw,46rem)]" />
+          <p className="mt-7 max-w-md text-sm leading-relaxed text-ivory/85">
             Membership, objects, seats, talent, tools, and an industry index — a ledger, not a landing page.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
-              to="/pass"
+              to="/sites"
               className="inline-flex min-h-12 items-center bg-heat px-6 font-display text-xs tracking-widest text-navy uppercase hover:bg-ivory"
             >
-              Take a pass
+              Build a site
             </Link>
             <Link
               to="/atelier"
               className="inline-flex min-h-12 items-center border border-line px-6 font-display text-xs tracking-widest uppercase hover:border-heat hover:text-heat"
             >
               This drop
+            </Link>
+            <Link
+              to="/corporate"
+              className="inline-flex min-h-12 items-center border border-line px-6 font-display text-xs tracking-widest uppercase hover:border-heat hover:text-heat"
+            >
+              Corporate
             </Link>
           </div>
         </div>
@@ -59,8 +75,17 @@ function Home() {
         </div>
       </div>
 
-      <section className="grid md:grid-cols-2">
-        <img src="/hero-corridor.jpg" alt="" className="h-80 w-full object-cover md:h-auto" />
+      <section className="relative grid min-h-[70vh] overflow-hidden md:grid-cols-2">
+        <video
+          className="h-80 w-full object-cover md:h-full"
+          src="/hero-loop.mp4"
+          poster="/hero-corridor.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
         <div className="flex flex-col justify-center bg-navy px-5 py-16 md:px-12">
           <p className="font-display text-xs tracking-widest text-heat uppercase">The identity</p>
           <h2 className="mt-3 font-display text-4xl tracking-wide uppercase md:text-6xl">
@@ -81,10 +106,10 @@ function Home() {
           { n: "02", to: "/os" as const, t: "OS", d: "Storefront, calendar, leak watch, BAS pack." },
           { n: "03", to: "/atlas" as const, t: "Atlas", d: "The trade, indexed. Compile a dossier from live identifiers." },
           { n: "04", to: "/academy" as const, t: "Academy", d: "Paid seats. Identity, consent, house craft." },
-          { n: "05", to: "/nights" as const, t: "Nights", d: "Perth doors. Tickets and featured slots." },
-          { n: "06", to: "/lookbook" as const, t: "Lookbook", d: "Permissioned editorial likeness. A lease." },
-          { n: "07", to: "/services" as const, t: "Services", d: "Launch kits, capture days, takedowns." },
-          { n: "08", to: "/ledger" as const, t: "Ledger", d: "FLESH Points. Rewards. A pass you can claim." },
+          { n: "05", to: "/lookbook" as const, t: "Lookbook", d: "Permissioned editorial likeness. A lease." },
+          { n: "06", to: "/sites" as const, t: "Sites", d: "Start, Signature, or Black. A site in 72 hours." },
+          { n: "07", to: "/ledger" as const, t: "Ledger", d: "FLESH Points. Rewards. A pass you can claim." },
+          { n: "08", to: "/corporate" as const, t: "Corporate", d: "The house file and every public price." },
         ].map((h) => (
           <Link
             key={h.n}

@@ -2,8 +2,8 @@ import { cn } from "@/lib/utils";
 
 const SRC = {
   wordmark: "/wordmark-3d.png",
-  lockup: "/lockup-lips.png",
-  original: "/logo.png",
+  lockup: "/wordmark-3d.png",
+  original: "/wordmark-3d.png",
 } as const;
 
 export function BrandLogo({

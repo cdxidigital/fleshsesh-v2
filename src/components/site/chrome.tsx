@@ -15,9 +15,10 @@ const NAV = [
   { to: "/academy", label: "Academy" },
   { to: "/talent", label: "Talent" },
   { to: "/os", label: "OS" },
+  { to: "/sites", label: "Sites" },
   { to: "/atlas", label: "Atlas" },
-  { to: "/nights", label: "Nights" },
   { to: "/ledger", label: "Ledger" },
+  { to: "/join", label: "Join" },
 ];
 
 export function AgeShell({ children, ssrOk = false }: { children: ReactNode; ssrOk?: boolean }) {
@@ -88,7 +89,7 @@ export function HouseChrome({ children }: { children: ReactNode }) {
       <div className="grain" />
       <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between border-b border-line/70 bg-void/80 px-5 py-3.5 backdrop-blur-md md:px-8">
         <Link to="/" className="relative z-10 shrink-0" aria-label="fleshsesh home">
-          <BrandLogo className="h-12 w-auto md:h-16" />
+          <BrandLogo className="nav-mark h-8 w-auto md:h-9" />
         </Link>
         <nav className="hidden items-center gap-3 font-display text-[11px] tracking-widest uppercase xl:flex">
           {NAV.map((item) => (
@@ -167,9 +168,6 @@ export function HouseChrome({ children }: { children: ReactNode }) {
                 {item.label}
               </Link>
             ))}
-            <Link to="/join" onClick={() => setOpen(false)} className="border-b border-line py-4">
-              Join
-            </Link>
             <Link to="/desk" onClick={() => setOpen(false)} className="border-b border-line py-4">
               Desk
             </Link>
@@ -193,6 +191,12 @@ export function HouseChrome({ children }: { children: ReactNode }) {
         <div>© {new Date().getFullYear()} fleshsesh · Perth</div>
         <div>Gender-fluid · 18+ · No explicit media on this domain</div>
         <div className="flex gap-3">
+          <Link to="/sites" className="hover:text-heat">
+            Sites
+          </Link>
+          <Link to="/corporate" className="hover:text-heat">
+            Corporate
+          </Link>
           <Link to="/legal" className="hover:text-heat">
             Legal
           </Link>
@@ -220,6 +224,16 @@ export function HouseChrome({ children }: { children: ReactNode }) {
   );
 }
 
+const FILM: Record<string, string> = {
+  "/hero-corridor.jpg": "/hero-loop.mp4",
+  "/still-live.jpg": "/room-loop.mp4",
+  "/still-atelier.jpg": "/atelier-loop.mp4",
+  "/still-talent.jpg": "/hero-loop.mp4",
+  "/still-academy.jpg": "/atelier-loop.mp4",
+  "/still-hands.jpg": "/room-loop.mp4",
+  "/still-lips.jpg": "/room-loop.mp4",
+};
+
 export function PageHero({
   kicker,
   title,
@@ -231,15 +245,27 @@ export function PageHero({
   image: string;
   children?: ReactNode;
 }) {
+  const film = FILM[image];
   return (
-    <section className="relative flex min-h-[62dvh] items-end px-5 pb-12 pt-32 md:min-h-[70dvh] md:px-8">
-      <img src={image} alt="" className="absolute inset-0 size-full object-cover" />
-      <div className="absolute inset-0 bg-linear-to-t from-void via-void/45 to-navy/40" />
-      <div className="relative">
-        <p className="mb-3 font-display text-xs tracking-widest text-heat uppercase">{kicker}</p>
-        <h1 className="font-display text-5xl font-medium tracking-wide text-ivory uppercase md:text-7xl">
-          {title}
-        </h1>
+    <section className="relative flex min-h-[70dvh] items-end overflow-hidden px-5 pb-12 pt-32 md:px-8">
+      {film ? (
+        <video
+          className="absolute inset-0 size-full object-cover"
+          src={film}
+          poster={image}
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden="true"
+        />
+      ) : (
+        <img src={image} alt="" className="film-still absolute inset-0 size-full object-cover" />
+      )}
+      <div className="absolute inset-0 bg-linear-to-t from-void via-void/60 to-navy/30" />
+      <div className="relative reveal">
+        <p className="mb-3 font-display text-xs tracking-[0.28em] text-heat uppercase">{kicker}</p>
+        <h1 className="font-display text-5xl font-medium tracking-wide text-ivory uppercase md:text-7xl">{title}</h1>
         {children}
       </div>
     </section>

@@ -55,7 +55,7 @@ function CollectionPage() {
 
       <div className="mt-10 grid gap-px bg-line lg:grid-cols-12">
         <div className="relative min-h-80 overflow-hidden bg-navy p-8 lg:col-span-7">
-          <img src="/logo.png" alt="" className="pointer-events-none absolute top-8 right-8 w-28 opacity-80" />
+          <img src="/wordmark-3d.png" alt="" className="pointer-events-none absolute top-8 right-8 w-44 opacity-90" />
           <p className="font-display text-xs tracking-widest text-heat uppercase">FLESH Pass</p>
           <h2 className="mt-6 font-display text-4xl tracking-wide uppercase">
             {data.plan ? `${data.plan} mark` : "Unclaimed"}

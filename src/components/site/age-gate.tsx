@@ -8,15 +8,20 @@ export function AgeGate({ onEnter }: { onEnter: () => void }) {
       aria-modal="true"
       aria-labelledby="gate-title"
     >
-      <img
-        src="/still-lips.jpg"
-        alt=""
-        className="absolute inset-0 size-full object-cover opacity-45"
+      <video
+        className="absolute inset-0 size-full object-cover opacity-70"
+        src="/hero-loop.mp4"
+        poster="/hero-corridor.jpg"
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
       />
       <div className="absolute inset-0 bg-linear-to-b from-navy/70 via-navy/55 to-void" />
 
       <div className="relative z-10 flex w-full max-w-xl flex-col items-center px-6 pb-12 pt-20 text-center md:pb-0">
-        <BrandLogo variant="lockup" className="mb-8 h-36 w-auto md:h-48" />
+        <BrandLogo variant="wordmark" className="mb-8 h-auto w-[min(90vw,48rem)]" />
         <p
           id="gate-title"
           className="font-display text-3xl font-medium tracking-wide text-ivory uppercase md:text-5xl"

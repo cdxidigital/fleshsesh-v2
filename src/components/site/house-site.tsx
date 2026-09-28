@@ -58,7 +58,7 @@ export function HouseSite() {
       <div className="grain" />
 
       <header className="fixed inset-x-0 top-0 z-50 flex items-center justify-between px-5 py-4 md:px-8">
-        <a href="#top" className="block w-28 md:w-32" aria-label="fleshsesh home">
+        <a href="#top" className="block w-44 md:w-56" aria-label="fleshsesh home">
           <BrandLogo className="w-full drop-shadow-lg" />
         </a>
         <nav className="hidden items-center gap-7 font-display text-xs tracking-widest uppercase md:flex">
@@ -117,7 +117,7 @@ export function HouseSite() {
             <p className="mb-4 font-display text-xs tracking-widest text-heat uppercase">
               Adult lifestyle house · Perth
             </p>
-            <BrandLogo className="w-full max-w-sm drop-shadow-2xl" />
+            <BrandLogo className="w-full max-w-2xl drop-shadow-2xl" />
             <p className="mt-6 max-w-xs text-center text-sm text-ivory/80">
               Modern. Edgy. Built for heat with taste.
             </p>
@@ -142,9 +142,9 @@ export function HouseSite() {
           <div className="flex flex-col justify-center bg-navy px-6 py-16 md:px-14">
             <p className="font-display text-xs tracking-widest text-heat uppercase">The mark</p>
             <h2 className="mt-4 font-display text-4xl leading-none tracking-wide text-ivory uppercase md:text-6xl">
-              The original
+              The wordmark
               <br />
-              lips stay.
+              stands alone.
             </h2>
             <p className="mt-6 max-w-md text-base leading-relaxed text-muted">
               Same wordmark. Same curves. The house just got sharper — less flyer,
@@ -219,7 +219,7 @@ export function HouseSite() {
           id="contact"
           className="flex min-h-[80vh] flex-col items-center justify-center bg-void px-6 py-24 text-center"
         >
-          <BrandLogo className="mb-8 w-40 md:w-52" />
+          <BrandLogo className="mb-8 w-64 md:w-80" />
           <p className="font-display text-xs tracking-widest text-heat uppercase">The door is open</p>
           <h2 className="mt-4 font-display text-5xl leading-none tracking-wide uppercase md:text-8xl">
             Come in

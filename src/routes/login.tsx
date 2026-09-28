@@ -29,7 +29,7 @@ function Login() {
     <HouseChrome>
       <section className="grid min-h-dvh place-items-center px-5 pt-24 pb-16">
         <div className="w-full max-w-sm text-center">
-          <BrandLogo className="mx-auto mb-8 h-14 w-auto" />
+          <BrandLogo className="mx-auto mb-8 h-20 w-auto" />
           <p className="font-display text-xs tracking-widest text-heat uppercase">The desk</p>
           <h1 className="mt-3 font-display text-4xl tracking-wide uppercase">Sign in</h1>
           <p className="mt-3 mb-8 text-sm leading-relaxed text-muted">

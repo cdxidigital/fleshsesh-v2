@@ -122,7 +122,7 @@ var HEADERS = { TSS_SHELL: "X-TSS_SHELL" };
 * the dev styles URL for route-scoped CSS collection.
 */
 async function getStartManifest(matchedRoutes) {
-	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-CQ0fk0D_.mjs");
+	const { tsrStartManifest } = await import("../_tanstack-start-manifest_v-BasJ0ebK.mjs");
 	const startManifest = tsrStartManifest();
 	let routes = startManifest.routes;
 	routes[rootRouteId];
@@ -144,7 +144,7 @@ async function getStartManifest(matchedRoutes) {
 var manifest = {
 	"0a163ca9929a2d41e7eb49ffb47a2f57bd13ccc2f70ef3e55b7d55ff56f35936": {
 		functionName: "getCourseReader_createServerFn_handler",
-		importer: () => import("./shop-ClY7G4Q5.mjs")
+		importer: () => import("./shop-K9yTuiqG.mjs")
 	},
 	"183cc80904db2ed73edceccd0a398335c9eabbaa1c679e4702c12c22b470b34d": {
 		functionName: "readAgeCookie_createServerFn_handler",
@@ -156,11 +156,11 @@ var manifest = {
 	},
 	"1ec17876e35cc728acc40f0fa75dbee50a94bfc2fe5e2bcc0ab19c9f7c3b20e0": {
 		functionName: "getLiveRecord_createServerFn_handler",
-		importer: () => import("./queries-CXpcAeLI.mjs")
+		importer: () => import("./queries-CT_AYWrG.mjs")
 	},
 	"2540b7b11a6f484f804d4f82a7b40f7de8fa1d434ee7d8b180cd76d417c39035": {
 		functionName: "getTalent_createServerFn_handler",
-		importer: () => import("./shop-ClY7G4Q5.mjs")
+		importer: () => import("./shop-K9yTuiqG.mjs")
 	},
 	"278a1daf6e625ecb9cf9ade921ccec835574642b074b93f8c923072f6f5d90b5": {
 		functionName: "getCreatorOs_createServerFn_handler",
@@ -172,7 +172,7 @@ var manifest = {
 	},
 	"3d243e85508cdf0cdd33158748214232fd05bae039c747016bdfa52d5b110e92": {
 		functionName: "submitBrief_createServerFn_handler",
-		importer: () => import("./shop-ClY7G4Q5.mjs")
+		importer: () => import("./shop-K9yTuiqG.mjs")
 	},
 	"49a89459f5c7319084a3bb64f68009aa0f44fa00192615ac507b8a7039bdbb0d": {
 		functionName: "tapStorefrontLink_createServerFn_handler",
@@ -180,7 +180,7 @@ var manifest = {
 	},
 	"4c317887ffd6317f9659416cc910be5de40766f7b0030c9de1b78e3a4054e330": {
 		functionName: "checkout_createServerFn_handler",
-		importer: () => import("./shop-ClY7G4Q5.mjs")
+		importer: () => import("./shop-K9yTuiqG.mjs")
 	},
 	"526dd360891bcf1dec9f4e147c6c94862f9ac9bfa088aa97c1e8dacca15909d3": {
 		functionName: "listFleshRewards_createServerFn_handler",
@@ -192,11 +192,11 @@ var manifest = {
 	},
 	"6a350458c3ec4db01ae9c90f9a009f6325bef5ef61de398ba1e52cbafaf31b7e": {
 		functionName: "listRoomDay_createServerFn_handler",
-		importer: () => import("./shop-ClY7G4Q5.mjs")
+		importer: () => import("./shop-K9yTuiqG.mjs")
 	},
 	"6b0efdee43a97f68367a6d30c6cd7b70e0a403fa9d4afe7f52b8e137507c77e3": {
 		functionName: "listTalent_createServerFn_handler",
-		importer: () => import("./shop-ClY7G4Q5.mjs")
+		importer: () => import("./shop-K9yTuiqG.mjs")
 	},
 	"6d5da0426648593150ee687704ab37e2fd7c7bcdeedc25deaadbfd0a71c25d75": {
 		functionName: "getLedger_createServerFn_handler",
@@ -204,7 +204,7 @@ var manifest = {
 	},
 	"6ed0c9890eeae6aec6eea03db057843ddb32452809735bf32d741f4de1baa054": {
 		functionName: "addToCart_createServerFn_handler",
-		importer: () => import("./shop-ClY7G4Q5.mjs")
+		importer: () => import("./shop-K9yTuiqG.mjs")
 	},
 	"725fdb5a662c9b0f7b5955aba1f866a6669bc2be5082b847c3d3c34de262c5aa": {
 		functionName: "getPublicStorefront_createServerFn_handler",
@@ -212,27 +212,27 @@ var manifest = {
 	},
 	"726656b1ad5879af916a37b5dc6632a9e3969bf4af3081950973aa085d6e3bb4": {
 		functionName: "searchLiveIndex_createServerFn_handler",
-		importer: () => import("./queries-CXpcAeLI.mjs")
+		importer: () => import("./queries-CT_AYWrG.mjs")
 	},
 	"741b8bd188813d7d396f95ea74805584ce6f7a424994980a515e738f105f1e89": {
 		functionName: "listProducts_createServerFn_handler",
-		importer: () => import("./shop-ClY7G4Q5.mjs")
+		importer: () => import("./shop-K9yTuiqG.mjs")
 	},
 	"770f14375f67e8042af794f75e0e56ce1183d644bc092f3c79e55b74255aeb5b": {
 		functionName: "listRooms_createServerFn_handler",
-		importer: () => import("./shop-ClY7G4Q5.mjs")
+		importer: () => import("./shop-K9yTuiqG.mjs")
 	},
 	"78be03387fae999d10f2aa0f91e39494adcaf54b57bb7b993b704ee41a333612": {
 		functionName: "getCart_createServerFn_handler",
-		importer: () => import("./shop-ClY7G4Q5.mjs")
+		importer: () => import("./shop-K9yTuiqG.mjs")
 	},
 	"7a8c0d70950fbe2f71922115546557c0b93e93eb4a4a9b48dece6fdf64ee9612": {
 		functionName: "bookRoom_createServerFn_handler",
-		importer: () => import("./shop-ClY7G4Q5.mjs")
+		importer: () => import("./shop-K9yTuiqG.mjs")
 	},
 	"7d904d3562bc104fb67879950dc332fbf6018214298fbecd0b48053462cb479b": {
 		functionName: "getCourse_createServerFn_handler",
-		importer: () => import("./shop-ClY7G4Q5.mjs")
+		importer: () => import("./shop-K9yTuiqG.mjs")
 	},
 	"83f934fb6f0891a58bb56ea36ecf34a56c1173c06509057fdd0bc632342ac2de": {
 		functionName: "getTwin_createServerFn_handler",
@@ -248,7 +248,7 @@ var manifest = {
 	},
 	"a0d70c8c9b7617ac0e20c6abebdafccde673d0f3b296ae50004d85401c5def33": {
 		functionName: "getDesk_createServerFn_handler",
-		importer: () => import("./shop-ClY7G4Q5.mjs")
+		importer: () => import("./shop-K9yTuiqG.mjs")
 	},
 	"a2851ea36d304b00e3a586c2b9b8bea2d6fa52b47e386b6eb5591c881431ae8e": {
 		functionName: "fileDossier_createServerFn_handler",
@@ -264,7 +264,7 @@ var manifest = {
 	},
 	"b5da19482ec9db43f3a672998b17f53936da8857e5edf61a5135268e94d9eeb0": {
 		functionName: "setCartQty_createServerFn_handler",
-		importer: () => import("./shop-ClY7G4Q5.mjs")
+		importer: () => import("./shop-K9yTuiqG.mjs")
 	},
 	"b7a4c96ec0e04e09f1721013d76c1f5d161c978df92eb8959d715ed887f92da7": {
 		functionName: "claimFleshPass_createServerFn_handler",
@@ -284,7 +284,7 @@ var manifest = {
 	},
 	"c51a67b4d68558e25f2a4d267983c9afa599ba75687d3cdd3d87c18bd26802c9": {
 		functionName: "getProduct_createServerFn_handler",
-		importer: () => import("./shop-ClY7G4Q5.mjs")
+		importer: () => import("./shop-K9yTuiqG.mjs")
 	},
 	"c7e640dd6376ef09a0ed6645a6e025cdc10d3477872d7be222d617580edd815f": {
 		functionName: "takeCraftExam_createServerFn_handler",
@@ -1570,7 +1570,7 @@ var getBaseManifest = getProdBaseManifest;
 var createEarlyHintsForRequest = createEarlyHintsCollector;
 async function loadEntries() {
 	const [routerEntry, startEntry, pluginAdapters] = await Promise.all([
-		import("./router-Dt0_uhc_.mjs").then((n) => n.t),
+		import("./router-DIMByEGm.mjs").then((n) => n.t),
 		import("./start-5Z2QO8AU.mjs"),
 		import("./empty-plugin-adapters-D9UWiqvJ.mjs")
 	]);

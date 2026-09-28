@@ -223,29 +223,6 @@ function DeskPage() {
         </div>
 
         <div className="mt-14">
-          <h2 className="font-display text-2xl tracking-wide uppercase">Nights</h2>
-          {desk?.rsvps?.length ? (
-            <ul className="mt-4">
-              {desk.rsvps.map((r) => (
-                <li key={r.title} className="flex justify-between border-t border-line py-3 text-sm">
-                  <span>
-                    {r.title} · {r.date} · ×{r.qty}
-                  </span>
-                  <span className="text-heat tabular-nums">{aud(r.total_cents)}</span>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="mt-3 text-sm text-muted">
-              No tickets.{" "}
-              <Link to="/nights" className="text-heat">
-                Nights
-              </Link>
-            </p>
-          )}
-        </div>
-
-        <div className="mt-14">
           <h2 className="font-display text-2xl tracking-wide uppercase">Badges</h2>
           {desk?.badges?.some((b) => b.passed) ? (
             <ul className="mt-4">

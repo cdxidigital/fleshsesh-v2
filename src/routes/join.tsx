@@ -279,7 +279,7 @@ function JoinPage() {
     return (
       <HouseChrome>
         <section className="mx-auto flex min-h-dvh max-w-xl flex-col items-center justify-center px-5 py-28 text-center">
-          <BrandLogo variant="lockup" className="mb-8 h-32 w-auto" />
+          <BrandLogo variant="wordmark" className="mb-8 h-auto w-[min(80vw,32rem)]" />
           <p className="font-display text-xs tracking-widest text-heat uppercase">On the desk</p>
           <h1 className="mt-3 font-display text-5xl tracking-wide uppercase">File received.</h1>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-muted">
@@ -315,7 +315,7 @@ function JoinPage() {
 
           <div className="border border-line bg-navy/80 p-6 backdrop-blur-sm md:p-10">
             <div className="mb-8 flex items-center justify-between gap-4">
-              <BrandLogo variant="lockup" className="h-14 w-auto md:h-16" />
+              <BrandLogo variant="wordmark" className="h-16 w-auto md:h-20" />
               <p className="font-display text-xs tracking-widest text-muted uppercase">
                 {d.step + 1} / {STEPS.length}
               </p>

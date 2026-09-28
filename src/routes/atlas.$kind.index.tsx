@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { EntityCard } from "@/components/atlas/entity-card";
 import { SearchBox } from "@/components/atlas/search-box";
-import { KIND_META, isKind, listKind, socialDirectory, type Kind } from "@/lib/catalog";
+import { KIND_META, isKind, listKind, socialDirectory, lawRegion, LAW_REGIONS, type Kind } from "@/lib/catalog";
 import { KIND_ICON } from "@/components/atlas/kind-mark";
 import { LIVE_SOURCE_LINE } from "@/lib/live/sources";
 
@@ -62,6 +62,8 @@ function BrowseKind() {
   const list = listKind(kind);
   const upcoming = kind === "events" ? list.filter((e) => e.status === "Upcoming") : [];
   const rest = kind === "events" ? list.filter((e) => e.status !== "Upcoming") : list;
+  const lawGroups =
+    kind === "law" ? LAW_REGIONS.map((region) => ({ region, items: list.filter((e) => lawRegion(e) === region) })) : [];
 
   return (
     <div className="px-5 py-10 md:px-8">
@@ -97,6 +99,52 @@ function BrowseKind() {
         </div>
       ) : null}
 
+      {kind === "law" ? (
+        <div className="mt-8">
+          {lawGroups
+            .filter((g) => g.items.length > 0)
+            .map((g) =>
+              g.region === "Australian" ? (
+                <section key={g.region} className="border border-heat/70 bg-navy p-5 md:p-8">
+                  <p className="font-display text-xs tracking-widest text-heat uppercase">First · Perth</p>
+                  <h2 className="mt-2 font-display text-4xl tracking-wide uppercase md:text-5xl">Australian law</h2>
+                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
+                    Four plain questions. Not a statute class. Not legal advice.
+                  </p>
+                  <ul className="mt-5 grid gap-3 sm:grid-cols-3">
+                    {[
+                      ["Talent", "Know the rating, keep your legal name off the post, and you can pull a picture you did not agree to."],
+                      ["Influencer", "A feed is not a classified film. Explicit posts need an age check. What you shoot yourself is usually yours."],
+                      ["Production", "No X 18+ sales in Western Australia. Write who owns the files, where they go, and how someone says stop."],
+                    ].map(([t, d]) => (
+                      <li key={t} className="border border-line bg-void px-4 py-3">
+                        <p className="font-display text-xs tracking-widest text-heat uppercase">{t}</p>
+                        <p className="mt-2 text-sm leading-relaxed text-ivory/80">{d}</p>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                    {g.items.map((e) => (
+                      <EntityCard key={e.id} entity={e} />
+                    ))}
+                  </div>
+                </section>
+              ) : (
+                <section key={g.region} className="mt-12">
+                  <h2 className="font-display text-xs tracking-widest text-muted uppercase">
+                    {g.region}
+                    <span className="ml-2 tabular-nums">{g.items.length}</span>
+                  </h2>
+                  <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                    {g.items.map((e) => (
+                      <EntityCard key={e.id} entity={e} />
+                    ))}
+                  </div>
+                </section>
+              ),
+            )}
+        </div>
+      ) : (
       <div className={upcoming.length ? "mt-10" : "mt-8"}>
         {upcoming.length > 0 || LIVE_KINDS.has(kind) ? (
           <h2 className="font-display text-xs tracking-widest text-heat uppercase">
@@ -109,6 +157,7 @@ function BrowseKind() {
           ))}
         </div>
       </div>
+      )}
     </div>
   );
 }

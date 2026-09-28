@@ -60,6 +60,56 @@ export function takeBrief(): BriefDraft | null {
   }
 }
 
+const SITE_KEY = "fleshsesh-pending-site";
+
+export type SiteDraft = {
+  step: number;
+  plan: "start" | "signature" | "black";
+  care: "month" | "year";
+  speed: "none" | "launch" | "rush" | "sameday";
+  addons: string[];
+  stageName: string;
+  legalName: string;
+  pronouns: string;
+  email: string;
+  phone: string;
+  city: string;
+  over18: boolean;
+  ownContent: boolean;
+  adultAck: boolean;
+  subdomain: string;
+  customDomain: string;
+  tagline: string;
+  shortBio: string;
+  vibe: string;
+  dont: string;
+  driveLink: string;
+  onlyfans: string;
+  fansly: string;
+  instagram: string;
+  x: string;
+  ratePublic: "Public" | "Gated" | "On request";
+};
+
+export function stashSite(draft: SiteDraft) {
+  try {
+    sessionStorage.setItem(SITE_KEY, JSON.stringify(draft));
+  } catch {
+    /* ignore */
+  }
+}
+
+export function takeSite(): SiteDraft | null {
+  try {
+    const raw = sessionStorage.getItem(SITE_KEY);
+    sessionStorage.removeItem(SITE_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw) as SiteDraft;
+  } catch {
+    return null;
+  }
+}
+
 export const AGE_KEY = "fleshsesh-age-ok";
 
 export function writeAgeOk() {
