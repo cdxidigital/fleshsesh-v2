@@ -12,7 +12,7 @@ const DESKS = [
   ["Atelier", "Objects cut for any body. Some are made when the order lands."],
   ["Academy", "Consent, language, money, and how a brand writes a brief."],
   ["Talent", "Signed people. Day rates. A file, not a type."],
-  ["Sites", "Personal sites. Start $295, Signature $595, Black $995. 72 hours after the files land."],
+  ["Digital", "Sites, OS, and studio work. Start $295, Signature $595, Black $995."],
   ["OS", "Storefront, calendar, leak watch, tax pack. Tools, not a tube."],
   ["Atlas", "Australian, American, and European industry databases. Law, Perth first."],
   ["Ledger", "Credit, points, and the tab. What was spent stays visible."],

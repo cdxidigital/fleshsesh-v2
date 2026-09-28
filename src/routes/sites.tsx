@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState, type FormEvent, type ReactNode } from "re
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { HouseChrome, PageHero, HeatButton, GhostButton } from "@/components/site/chrome";
+import { DigitalTabs } from "@/components/site/digital-tabs";
 import { submitBrief } from "@/lib/house/shop";
 import { aud, isUnauthorized } from "@/lib/house/money";
 import { useCurrentUserState } from "@/lib/auth/use-current-user";
@@ -332,12 +333,13 @@ function SitesPage() {
 
   return (
     <HouseChrome>
-      <PageHero kicker="Personal sites" title={<>A name.<br />A site. 72 hours.</>} image="/hero-corridor.jpg">
+      <PageHero kicker="Digital · Sites" title={<>A name.<br />A site. 72 hours.</>} image="/hero-corridor.jpg">
         <p className="mt-4 max-w-md text-sm leading-relaxed text-ivory/80">
           Start, Signature, or Black. Profile, links, and enquiries. Not a tube, and not a checkout for content. The
           preview goes to your email.
         </p>
       </PageHero>
+      <DigitalTabs />
 
       <section className="grid border-t border-line lg:grid-cols-3">
         {PLANS.map((plan) => {

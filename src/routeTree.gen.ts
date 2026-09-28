@@ -18,6 +18,7 @@ import { Route as BrochureRouteImport } from './routes/brochure'
 import { Route as CartRouteImport } from './routes/cart'
 import { Route as CorporateRouteImport } from './routes/corporate'
 import { Route as DeskRouteImport } from './routes/desk'
+import { Route as DigitalRouteImport } from './routes/digital'
 import { Route as JoinRouteImport } from './routes/join'
 import { Route as LedgerRouteImport } from './routes/ledger'
 import { Route as LegalRouteImport } from './routes/legal'
@@ -101,6 +102,11 @@ const CorporateRoute = CorporateRouteImport.update({
 const DeskRoute = DeskRouteImport.update({
   id: '/desk',
   path: '/desk',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalRoute = DigitalRouteImport.update({
+  id: '/digital',
+  path: '/digital',
   getParentRoute: () => rootRouteImport,
 } as any)
 const JoinRoute = JoinRouteImport.update({
@@ -309,6 +315,7 @@ export interface FileRoutesByFullPath {
   '/cart': typeof CartRoute
   '/corporate': typeof CorporateRoute
   '/desk': typeof DeskRoute
+  '/digital': typeof DigitalRoute
   '/join': typeof JoinRoute
   '/ledger': typeof LedgerRouteWithChildren
   '/legal': typeof LegalRoute
@@ -356,6 +363,7 @@ export interface FileRoutesByTo {
   '/cart': typeof CartRoute
   '/corporate': typeof CorporateRoute
   '/desk': typeof DeskRoute
+  '/digital': typeof DigitalRoute
   '/join': typeof JoinRoute
   '/legal': typeof LegalRoute
   '/live': typeof LiveRoute
@@ -402,6 +410,7 @@ export interface FileRoutesById {
   '/cart': typeof CartRoute
   '/corporate': typeof CorporateRoute
   '/desk': typeof DeskRoute
+  '/digital': typeof DigitalRoute
   '/join': typeof JoinRoute
   '/ledger': typeof LedgerRouteWithChildren
   '/legal': typeof LegalRoute
@@ -454,6 +463,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/corporate'
     | '/desk'
+    | '/digital'
     | '/join'
     | '/ledger'
     | '/legal'
@@ -501,6 +511,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/corporate'
     | '/desk'
+    | '/digital'
     | '/join'
     | '/legal'
     | '/live'
@@ -546,6 +557,7 @@ export interface FileRouteTypes {
     | '/cart'
     | '/corporate'
     | '/desk'
+    | '/digital'
     | '/join'
     | '/ledger'
     | '/legal'
@@ -597,6 +609,7 @@ export interface RootRouteChildren {
   CartRoute: typeof CartRoute
   CorporateRoute: typeof CorporateRoute
   DeskRoute: typeof DeskRoute
+  DigitalRoute: typeof DigitalRoute
   JoinRoute: typeof JoinRoute
   LedgerRoute: typeof LedgerRouteWithChildren
   LegalRoute: typeof LegalRoute
@@ -675,6 +688,13 @@ declare module '@tanstack/react-router' {
       path: '/desk'
       fullPath: '/desk'
       preLoaderRoute: typeof DeskRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digital': {
+      id: '/digital'
+      path: '/digital'
+      fullPath: '/digital'
+      preLoaderRoute: typeof DigitalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/join': {
@@ -1087,6 +1107,7 @@ const rootRouteChildren: RootRouteChildren = {
   CartRoute: CartRoute,
   CorporateRoute: CorporateRoute,
   DeskRoute: DeskRoute,
+  DigitalRoute: DigitalRoute,
   JoinRoute: JoinRoute,
   LedgerRoute: LedgerRouteWithChildren,
   LegalRoute: LegalRoute,

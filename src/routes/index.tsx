@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { HouseChrome } from "@/components/site/chrome";
+import { HouseChrome, openAcademySoon } from "@/components/site/chrome";
 import { BrandLogo } from "@/components/site/brand-logo";
 import { listProducts, type Product } from "@/lib/house/shop";
 import { aud } from "@/lib/house/money";
 
 export const Route = createFileRoute("/")({ component: Home });
 
-const MARQUEE = ["PASS", "ATELIER", "ACADEMY", "TALENT", "SITES", "OS", "ATLAS", "LEDGER", "PERTH", "GENDER-FLUID"];
+const MARQUEE = ["PASS", "ATELIER", "ACADEMY", "TALENT", "DIGITAL", "OS", "ATLAS", "LEDGER", "PERTH", "GENDER-FLUID"];
 
 function Home() {
   const [drop, setDrop] = useState<Product[]>([]);
@@ -43,10 +43,10 @@ function Home() {
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
-              to="/sites"
+              to="/digital"
               className="inline-flex min-h-12 items-center bg-heat px-6 font-display text-xs tracking-widest text-navy uppercase hover:bg-ivory"
             >
-              Build a site
+              Digital services
             </Link>
             <Link
               to="/atelier"
@@ -107,20 +107,33 @@ function Home() {
           { n: "03", to: "/atlas" as const, t: "Atlas", d: "The trade, indexed. Compile a dossier from live identifiers." },
           { n: "04", to: "/academy" as const, t: "Academy", d: "Paid seats. Identity, consent, house craft." },
           { n: "05", to: "/lookbook" as const, t: "Lookbook", d: "Permissioned editorial likeness. A lease." },
-          { n: "06", to: "/sites" as const, t: "Sites", d: "Start, Signature, or Black. A site in 72 hours." },
+          { n: "06", to: "/digital" as const, t: "Digital", d: "Sites, tools, and studio work. The brief opens here." },
           { n: "07", to: "/ledger" as const, t: "Ledger", d: "FLESH Points. Rewards. A pass you can claim." },
           { n: "08", to: "/corporate" as const, t: "Corporate", d: "The house file and every public price." },
-        ].map((h) => (
-          <Link
-            key={h.n}
-            to={h.to}
-            className="border-t border-line px-5 py-12 transition-colors hover:bg-navy md:px-8"
-          >
-            <p className="font-display text-xs tracking-widest text-heat uppercase">{h.n}</p>
-            <h3 className="mt-3 font-display text-3xl tracking-wide uppercase">{h.t}</h3>
-            <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted">{h.d}</p>
-          </Link>
-        ))}
+        ].map((h) =>
+          h.to === "/academy" ? (
+            <button
+              key={h.n}
+              type="button"
+              onClick={() => openAcademySoon()}
+              className="border-t border-line px-5 py-12 text-left transition-colors hover:bg-navy md:px-8"
+            >
+              <p className="font-display text-xs tracking-widest text-heat uppercase">{h.n}</p>
+              <h3 className="mt-3 font-display text-3xl tracking-wide uppercase">{h.t}</h3>
+              <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted">{h.d}</p>
+            </button>
+          ) : (
+            <Link
+              key={h.n}
+              to={h.to}
+              className="border-t border-line px-5 py-12 transition-colors hover:bg-navy md:px-8"
+            >
+              <p className="font-display text-xs tracking-widest text-heat uppercase">{h.n}</p>
+              <h3 className="mt-3 font-display text-3xl tracking-wide uppercase">{h.t}</h3>
+              <p className="mt-3 max-w-xs text-sm leading-relaxed text-muted">{h.d}</p>
+            </Link>
+          ),
+        )}
       </section>
 
       <section className="px-5 py-16 md:px-8">

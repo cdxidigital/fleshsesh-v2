@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { HouseChrome, PageHero } from "@/components/site/chrome";
+import { DigitalTabs } from "@/components/site/digital-tabs";
 import { BuyButton } from "@/components/site/buy-button";
 import { listProducts, type Product } from "@/lib/house/shop";
 import { aud } from "@/lib/house/money";
@@ -24,9 +25,10 @@ function ServicesPage() {
           to="/sites"
           className="mt-6 inline-flex min-h-12 items-center bg-heat px-6 font-display text-xs tracking-widest text-navy uppercase"
         >
-          Start a personal site
+          Open the site brief
         </Link>
       </PageHero>
+      <DigitalTabs />
       <section>
         {rows.map((p) => (
           <article key={p.id} className="grid border-t border-line md:grid-cols-[1fr_auto] md:items-center">

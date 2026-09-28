@@ -125,11 +125,71 @@
   }
 }
 
+@keyframes soon-veil {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes soon-card {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes soon-rule {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes soon-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.soon-veil {
+  animation: soon-veil 0.35s ease both;
+}
+
+.soon-card {
+  animation: soon-card 0.7s cubic-bezier(0.22, 0.7, 0.2, 1) both;
+}
+
+.soon-rule {
+  transform-origin: left center;
+  animation: soon-rule 0.8s cubic-bezier(0.22, 0.7, 0.2, 1) 0.25s both;
+}
+
+.soon-pulse {
+  animation: soon-pulse 2.8s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .marquee-track,
   .reveal,
   .hero-mark,
-  .film-still {
+  .film-still,
+  .soon-veil,
+  .soon-card,
+  .soon-rule,
+  .soon-pulse {
     animation: none;
   }
 }

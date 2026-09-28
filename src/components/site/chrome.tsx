@@ -9,13 +9,18 @@ import { BrandLogo } from "./brand-logo";
 import { cn } from "@/lib/utils";
 import { readAgeOkClient, writeAgeOk } from "@/lib/house/pending";
 
+export function openAcademySoon() {
+  if (typeof window === "undefined") return;
+  window.dispatchEvent(new Event("fleshsesh-academy-soon"));
+}
+
 const NAV = [
   { to: "/pass", label: "Pass" },
   { to: "/atelier", label: "Atelier" },
   { to: "/academy", label: "Academy" },
   { to: "/talent", label: "Talent" },
   { to: "/os", label: "OS" },
-  { to: "/sites", label: "Sites" },
+  { to: "/digital", label: "Digital" },
   { to: "/atlas", label: "Atlas" },
   { to: "/ledger", label: "Ledger" },
   { to: "/join", label: "Join" },
@@ -59,6 +64,7 @@ export function SignInHere({ next }: { next?: string }) {
 
 export function HouseChrome({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
+  const [soon, setSoon] = useState(false);
   const path = useRouterState({ select: (s) => s.location.pathname });
   const { user, isPending } = useCurrentUserState();
   const [count, setCount] = useState(0);
@@ -74,8 +80,10 @@ export function HouseChrome({ children }: { children: ReactNode }) {
   }, [user, path]);
 
   useEffect(() => {
-    setOpen(false);
-  }, [path]);
+    const onSoon = () => setSoon(true);
+    window.addEventListener("fleshsesh-academy-soon", onSoon);
+    return () => window.removeEventListener("fleshsesh-academy-soon", onSoon);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -92,15 +100,31 @@ export function HouseChrome({ children }: { children: ReactNode }) {
           <BrandLogo className="nav-mark h-8 w-auto md:h-9" />
         </Link>
         <nav className="hidden items-center gap-3 font-display text-[11px] tracking-widest uppercase xl:flex">
-          {NAV.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              className={cn("text-ivory/80 hover:text-heat", path.startsWith(item.to) && "text-heat")}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAV.map((item) =>
+            item.to === "/academy" ? (
+              <button
+                key={item.to}
+                type="button"
+                onClick={() => setSoon(true)}
+                className="text-ivory/80 hover:text-heat"
+              >
+                {item.label}
+              </button>
+            ) : (
+              <Link
+                key={item.to}
+                to={item.to}
+                className={cn(
+                  "text-ivory/80 hover:text-heat",
+                  (item.to === "/digital"
+                    ? path === "/digital" || path.startsWith("/sites") || path.startsWith("/services")
+                    : path.startsWith(item.to)) && "text-heat",
+                )}
+              >
+                {item.label}
+              </Link>
+            ),
+          )}
           <Link
             to="/cart"
             className="relative flex size-11 items-center justify-center text-ivory hover:text-heat"
@@ -158,16 +182,30 @@ export function HouseChrome({ children }: { children: ReactNode }) {
       {open ? (
         <div className="fixed inset-0 z-40 bg-navy px-5 pt-28 xl:hidden">
           <nav className="flex flex-col font-display text-3xl tracking-wide uppercase">
-            {NAV.map((item) => (
-              <Link
-                key={item.to}
-                to={item.to}
-                onClick={() => setOpen(false)}
-                className="border-b border-line py-4"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAV.map((item) =>
+              item.to === "/academy" ? (
+                <button
+                  key={item.to}
+                  type="button"
+                  onClick={() => {
+                    setOpen(false);
+                    setSoon(true);
+                  }}
+                  className="border-b border-line py-4 text-left"
+                >
+                  {item.label}
+                </button>
+              ) : (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className="border-b border-line py-4"
+                >
+                  {item.label}
+                </Link>
+              ),
+            )}
             <Link to="/desk" onClick={() => setOpen(false)} className="border-b border-line py-4">
               Desk
             </Link>
@@ -186,13 +224,41 @@ export function HouseChrome({ children }: { children: ReactNode }) {
       ) : null}
 
       <main className="relative z-10">{children}</main>
+      {soon ? (
+        <div
+          className="soon-veil fixed inset-0 z-[70] flex items-center justify-center bg-void/75 px-5"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="academy-soon"
+          onClick={() => setSoon(false)}
+        >
+          <div
+            className="soon-card w-full max-w-md border border-line bg-navy px-8 py-10 text-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <p className="font-display text-xs tracking-widest text-heat uppercase">Academy</p>
+            <div className="soon-rule mx-auto mt-4 h-px w-16 bg-heat" />
+            <h2 id="academy-soon" className="mt-4 font-display text-4xl tracking-wide uppercase">
+              Coming soon
+            </h2>
+            <p className="soon-pulse mt-3 text-sm tracking-[0.28em] text-heat uppercase">Stay tuned.</p>
+            <button
+              type="button"
+              onClick={() => setSoon(false)}
+              className="mt-8 inline-flex min-h-12 items-center bg-heat px-6 font-display text-xs tracking-widest text-navy uppercase hover:bg-ivory"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      ) : null}
 
       <footer className="relative z-10 mt-auto flex flex-wrap justify-between gap-4 border-t border-line px-5 py-8 text-xs tracking-wide text-muted md:px-8">
         <div>© {new Date().getFullYear()} fleshsesh · Perth</div>
         <div>Gender-fluid · 18+ · No explicit media on this domain</div>
         <div className="flex gap-3">
-          <Link to="/sites" className="hover:text-heat">
-            Sites
+          <Link to="/digital" className="hover:text-heat">
+            Digital
           </Link>
           <Link to="/corporate" className="hover:text-heat">
             Corporate

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { HouseChrome, PageHero } from "@/components/site/chrome";
+import { DigitalTabs } from "@/components/site/digital-tabs";
 import { BuyButton } from "@/components/site/buy-button";
 import { getCreatorOs } from "@/lib/house/ops";
 import { listProducts, type Product } from "@/lib/house/shop";
@@ -47,6 +48,7 @@ function OsPage() {
           </Link>
         ) : null}
       </PageHero>
+      <DigitalTabs />
       <section className="grid md:grid-cols-3">
         {plans.map((p) => (
           <article key={p.id} className="border-t border-line px-5 py-14 md:px-8">
